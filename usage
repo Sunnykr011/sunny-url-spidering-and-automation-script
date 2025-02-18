@@ -1,0 +1,8 @@
+# Basic Usage  
+python3 url_spider.py -u https://example.com  
+
+# Custom Depth  
+python3 url_spider.py -u https://example.com -d 5  
+
+# Custom Workers  
+python3 url_spider.py -u https://example.com -w 30
