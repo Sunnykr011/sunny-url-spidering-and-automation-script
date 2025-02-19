@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 from bs4 import BeautifulSoup  
 import logging  
 from urllib3.exceptions import InsecureRequestWarning  
+import time  
 
 class AdvancedURLSpider:  
     def __init__(self, base_url, max_depth=3, max_workers=20):  
@@ -170,6 +171,7 @@ def main():
     )  
 
     print(colorama.Fore.GREEN + f"[*] Starting URL spidering for {args.url}")  
+    start_time = time.time()  
     spider.parallel_spider()  
     
     print(colorama.Fore.CYAN + "[*] Saving results...")  
@@ -178,7 +180,9 @@ def main():
     print(colorama.Fore.YELLOW + "[*] Generating URL graph visualization...")  
     spider.visualize_url_graph()  
 
-    print(colorama.Fore.GREEN + "[+] Spidering complete!")  
+    end_time = time.time()  
+    elapsed_time = end_time - start_time  
+    print(colorama.Fore.GREEN + f"[+] Spidering complete! Elapsed time: {elapsed_time:.2f} seconds")  
 
 if __name__ == '__main__':  
     main()
